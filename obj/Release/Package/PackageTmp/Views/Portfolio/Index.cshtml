@@ -1,0 +1,907 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="portfolio" class="inner-content">
+
+    <section id="page-title" class="inner-section ui-menu-color03">
+        <div class="container-fluid nopadding">
+            <h2 class="font-accident-two-normal color01 uppercase"
+                data-animation-origin="right"
+                data-animation-duration="400"
+                data-animation-delay="100"
+                data-animation-distance="50px">
+                Portfolio
+            </h2>
+            <h5 class="font-accident-two-bold color01 uppercase subtitle"
+                data-animation-origin="right"
+                data-animation-duration="400"
+                data-animation-delay="200"
+                data-animation-distance="50px">
+            </h5>
+            <p class="small color01"
+               data-animation-origin="right"
+               data-animation-duration="400"
+               data-animation-delay="300"
+               data-animation-distance="50px">
+                Here you can browse my various javascript exercises and projects.
+            </p>
+        </div>
+    </section>
+
+    
+    <!-- Portfolio Block -->
+    <section id="portfolio-block" class="inner-section" data-section="portfolio">
+
+        <div class="dividewhite6"></div>
+
+        <div id="isotope-filters" class="port-filter port-filter-light text-center"
+             data-animation-origin="top"
+             data-animation-duration="500"
+             data-animation-delay="200"
+             data-animation-distance="25px">
+            <ul>
+                <li><a href="#cat1" data-filter="*">All</a></li>
+                <li><a href="#cat2" data-filter=".js">Javascript Logic</a></li>
+                <li><a href="#cat3" data-filter=".projects">Projects</a></li>
+                @*<li><a href="#cat4" data-filter=".seo">SEO</a></li>*@
+            </ul>
+        </div>
+
+        <div class="dividewhite6"></div>
+
+        <div class="row masonry-row">
+
+            <div class="grid container-fluid text-center">
+
+                <div id="posts" class="row popup-container">
+
+                    <div class="grid-item projects col-xs-6 col-sm-8 col-md-6">
+                        <div class="item-wrap">
+                            <figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="left"
+                                    data-animation-duration="600"
+                                    data-animation-delay="400"
+                                    data-animation-distance="100px">
+                                <div class="popup-call">
+                                    <a href="http://cwagner-shopping.azurewebsites.net/" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/shoppingCart.jpg" class="img-responsive"  alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Ecommerce Site</h3>
+                                        <p>Uses: Html, C#, MVC, Razor, Javascript, CSS</p>
+                                    </div>
+                                    <a href="http://cwagner-shopping.azurewebsites.net/" target="_blank"></a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="grid-item grid-sizer projects col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="top"
+                                    data-animation-duration="400"
+                                    data-animation-delay="400"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/02.jpg" class="gallery-item"><i class="flaticon-tool"></i></a>
+                                </div>
+                                <img src="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/02.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Awesome <span>Skills</span></h3>
+                                        <p>#web #seo</p>
+                                    </div>
+                                    <a href="portfolio-item-01.html"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            <figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="right"
+                                    data-animation-duration="400"
+                                    data-animation-delay="400"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/javaScript.png" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/javaScript.png" class="img-responsive" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>JavaScript Logic Problems</h3>
+                                        <p>Uses: HTML, jQuery</p>
+                                    </div>
+                                    <a href="@Url.Action("JS", "Portfolio")"></a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/fizzBuzz.png" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/fizzBuzz.png" class="img-responsive" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>FizzBuzz</h3>
+                                        <p>Uses: Html, JQuery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myFizzBuzzModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="400"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/math.PNG" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/math.PNG" class="img-responsive" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Number Set Manipulation</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myNumbersModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="right"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/factorial.jpg" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/factorial.jpg" class="img-responsive" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Factorial</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myFactorialModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/alphabet.jpg" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/alphabet.jpg" class="img-responsive" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Alphabetical Order</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myAlphabetModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item marketing js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="400"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/combination.jpg" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/combination.jpg" class="img-responsive" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Combination</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myCombinationModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item web col-xs-6 col-sm-8 col-md-6">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="right"
+                                    data-animation-duration="600"
+                                    data-animation-delay="400"
+                                    data-animation-distance="100px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/09.jpg" class="gallery-item"><i class="flaticon-tool"></i></a>
+                                </div>
+                                <img src="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/09.jpg" class="img-responsive'" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Responsive <span>Design</span></h3>
+                                        <p>#web #seo </p>
+                                    </div>
+                                    <a href="portfolio-item-01.html"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/prime.jpg" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/prime.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Prime Number Detector</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myPrimeModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="400"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/upperCase.jpg" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/upperCase.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Upper Casing</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myUpperCaseModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item js col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    style="width:75%"
+                                    data-animation-origin="right"
+                                    data-animation-duration="400"
+                                    data-animation-delay="400"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/images/vowels.jpg" class="gallery-item"></a>
+                                </div>
+                                <img src="/wwwroot/images/vowels.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Vowel Counter</h3>
+                                        <p>Uses: HTML, Jquery</p>
+                                    </div>
+                                    <a data-toggle="modal" data-target="#myVowelModal"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item web col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="right"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/13.jpg" class="gallery-item"><i class="flaticon-tool"></i></a>
+                                </div>
+                                <img src="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/13.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Mad <span>Skills</span></h3>
+                                        <p>#web #seo</p>
+                                    </div>
+                                    <a href="portfolio-item-01.html"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item seo col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="left"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/14.jpg" class="gallery-item"><i class="flaticon-tool"></i></a>
+                                </div>
+                                <img src="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/14.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Awesome <span>Calls</span></h3>
+                                        <p>#web #seo</p>
+                                    </div>
+                                    <a href="portfolio-item-01.html"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item web col-xs-6 col-sm-8 col-md-6">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="right"
+                                    data-animation-duration="600"
+                                    data-animation-delay="400"
+                                    data-animation-distance="100px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/15.jpg" class="gallery-item"><i class="flaticon-tool"></i></a>
+                                </div>
+                                <img src="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/15.jpg" class="img-responsive'" alt="img11" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Responsive <span>Grid System</span></h3>
+                                        <p>#web #seo </p>
+                                    </div>
+                                    <a href="portfolio-item-01.html"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                    <div class="grid-item web seo col-xs-6 col-sm-4 col-md-3">
+                        <div class="item-wrap">
+                            @*<figure class="effect-goliath ui-menu-color02"
+                                    data-animation-origin="right"
+                                    data-animation-duration="400"
+                                    data-animation-delay="500"
+                                    data-animation-distance="50px">
+                                <div class="popup-call">
+                                    <a href="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/16.jpg" class="gallery-item"><i class="flaticon-tool"></i></a>
+                                </div>
+                                <img src="/wwwroot/assets/custom/2.2.0/images/layouts/helena/portfolio/4-columns/16.jpg" class="img-responsive" alt="img03" />
+                                <figcaption>
+                                    <div class="fig-description">
+                                        <h3>Great <span>Feedback</span></h3>
+                                        <p>#web #seo</p>
+                                    </div>
+                                    <a href="portfolio-item-01.html"></a>
+                                </figcaption>
+                            </figure>*@
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dividewhite8"></div>
+
+    </section>
+    <!-- /Portfolio Block -->
+
+    <!--Palindrome Modal-->
+    <div class="modal fade" id="myPalindromeModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Palindrome</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Is a word a palindrome?  Enter it below and click "Word" to find out.</p>
+                            </div>
+                            <div>
+                                <input id="word" type="text" placeholder="Enter word" />
+                                <p></p>
+                                <button id="palindrome" class="btn-danger">Word</button>
+                                <p id="result"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#palindrome").click(
+                                        function () {
+                                            var word = $("#word").val().toLowerCase();
+                                            var remove = /[\W_]/g;
+                                            word = word.replace(remove, "");
+                                            var splitWord = word.split('');
+                                            var newWord = '';
+                                            for (var i = splitWord.length - 1; i >= 0; i--) {
+                                                newWord += splitWord[i];
+                                            }
+                                            if (word === newWord) {
+                                                $("#result").text(word + " spelled backwords is " + newWord + "! That makes it a palindrome!  Yay!");
+                                            }
+                                            else {
+                                                $("#result").text(word + " spelled backwords is " + newWord + ". That is not a palindrome.  Better luck next time.");
+                                            }
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--FizzBuzz Modal-->
+    <div class="modal fade" id="myFizzBuzzModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Fizz? Buzz? FizzBuzz!</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Pick any 2 numbers between 1 and 100.  Press "Play" to see what happens!</p>
+                            </div>
+                            <div>
+                                <input id="fizz" type="number" placeholder="Enter number" />
+                                <input id="buzz" type="number" placeholder="Enter number" />
+                                <p></p>
+                                <button id="fizzBuzz" class="btn-danger">Play</button>
+                                <p id="resultFb"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#fizzBuzz").click(
+                                        function fizzBuzz() {
+                                            if ($("#fizz").val() === "" || $("#buzz").val() === "" || Number($("#buzz").val()) < 1 || Number($("#fizz").val()) < 1 || Number($("#buzz").val()) > 100 || Number($("#fizz").val()) > 100) {
+                                                $("#result").text("Entry invalid.  Please make sure you are entering one number, between 1 and 100, in each entry field.");
+                                                return;
+                                            }
+                                            inputNum = []
+                                            inputNum.push(Number($("#fizz").val()), Number($("#buzz").val()));
+                                            inputNum.sort(function (a, b) { return a - b });
+                                            var x = inputNum[0];
+                                            var y = inputNum[1];
+                                            for (var i = 1; i <= 100; i++) {
+                                                if (i % x === 0 && i % y === 0) { //for if the user enters a second number that is a multiple of the first
+                                                    $("#resultFb").append("Fizz Buzz FizzBuzz<br>");                   
+                                                }
+                                                else if (i % (x * y) === 0) {
+                                                    $("#resultFb").append("FizzBuzz<br>");
+                                                }
+                                                else if (i % y === 0) {
+                                                    $("#result").append("Buzz&ltbr&gt");
+                                                }
+                                                else if (i % x === 0) {
+                                                    $("#result").append("Fizz&ltbr&gt");
+                                                }
+                                                else {
+                                                    $("#result").append(i + "&ltbr&lt");
+                                                }
+                                            }
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Numbers Modal-->
+    <div class="modal fade" id="myNumbersModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Number Set Manipulation</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Enter any 5 numbers below, then click 'Process'</p>
+                            </div>
+                            <div>
+                                <input type="number" placeholder="Enter number" id="num1" />
+                                <input type="number" placeholder="Enter number" id="num2" />
+                                <input type="number" placeholder="Enter number" id="num3" />
+                                <input type="number" placeholder="Enter number" id="num4" />
+                                <input type="number" placeholder="Enter number" id="num5" />
+                                <button id="sorting" class="btn-danger">Process</button>
+                                <p id="results1">See the results display here:</p>
+                                <p id="results2"></p>
+                                <p id="results3"></p>
+                                <p id="results4"></p>
+                                <p id="results5"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    app = {
+                                        least: "",
+                                        greatest: "",
+                                        mean: "",
+                                        sum: 0,
+                                        product: 1,
+                                        numbers: [],
+                                    },
+                                    $("#sorting").click(
+                                        function () {
+                                            app.numbers.push($("#num1").val(), $("#num2").val(), $("#num3").val(), $("#num4").val(), $("#num5").val());
+                                            for (var i = 0; i < app.numbers.length; i++) {
+                                                var test = app.numbers[i];
+                                                if (test === "") {
+                                                    $("#results1").text("Invalid entry. Please make sure you are entering one number per entry field.");
+                                                    return;
+                                                }
+                                            }
+                                            app.numbers.sort(function (a, b) { return a - b });
+                                            app.least = app.numbers[0];
+                                            app.greatest = app.numbers[4];
+                                            for (var j = 0; j < app.numbers.length; j++) {
+                                                app.sum += Number(app.numbers[j]);
+                                                app.product *= Number(app.numbers[j]);
+                                            }
+                                            app.mean = Number(app.sum) / app.numbers.length;
+                                            $("#results1").text(app.least + " is the lowest number entered!");
+                                            $("#results2").text(app.greatest + " is the greatest number entered!");
+                                            $("#results3").text(app.mean + " is the mean of the numbers entered!");
+                                            $("#results4").text(app.sum + " is the sum of the numbers entered!");
+                                            $("#results5").text(app.product + " is the product of the numbers entered!");
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Factorial Modal-->
+    <div class="modal fade" id="myFactorialModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Factorial</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Enter any number below to calculate the factorial value!</p>
+                            </div>
+                            <div>
+                                <input id="num" type="number" placeholder="Enter a number" />
+                                <p></p>
+                                <button id="factorial" class="btn-danger">!</button>
+                                <p id="resultFac"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#factorial").click(
+                                        function l() {
+                                            if ($("#num").val() === "") {
+                                                $("#result").text("Entry invalid.  Please make sure you are entering one number in each entry field.");
+                                                return;
+                                            }
+                                            var answer = 1;
+                                            for (i = $("#num").val(); i > 0; i--) {
+                                                answer *= Number(i);
+                                            }
+                                            $("#result").text("Your answer is: " + answer);
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Alphabet Order Modal-->
+    <div class="modal fade" id="myAlphabetModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Alphabetical Order</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Ever wonder what a word looks like rearranged in alphabetical order?  Enter a word and click "ABC" to find out!</p>
+                            </div>
+                            <div>
+                                <input id="wordAbc" type="text" placeholder="Enter word" />
+                                <p></p>
+                                <button id="abcMe" class="btn-danger">ABC</button>
+                                <p id="resultAbc"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#abcMe").click(
+                                        function () {
+                                            var word = $("#word").val();
+                                            var remove = /[\W_]/g;
+                                            var newWord = word.replace(remove, "");
+                                            newWord = newWord.split("").sort(Intl.Collator().compare).join("");
+                                            $("#result").text(newWord);
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Combination Modal-->
+    <div class="modal fade" id="myCombinationModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Combinations</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Enter a word and click "Combo" to view its combinations.</p>
+                            </div>
+                            <div>
+                                <input id="wordCom" type="text" placeholder="Enter a word" />
+                                <p></p>
+                                <button id="pair" class="btn-danger">Combo</button>
+                                <p id="resultCom"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#pair").click(
+                                        function () {
+                                            var word = $("#word").val();
+                                            var remove = /[\W_]/g;
+                                            var newWord = word.replace(remove, "");
+                                            newWord = newWord.split('');
+                                            var output = [];
+                                            var cmb;
+                                            cmb = Combinatorics.power(newWord);
+                                            cmb.forEach(function (a) { output.push(a.join('')) });
+                                            $("#result").text(output.filter(function (b) { return b !== "" }).join(', '))
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Prime Number Modal-->
+    <div class="modal fade" id="myPrimeModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Prime Numbers</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Enter a number and click "Prime?" to see if it is a prime number.</p>
+                            </div>
+                            <div>
+                                <input id="number" type="number" placeholder="Enter number" />
+                                <p></p>
+                                <button id="prime" class="btn-warning">Prime?</button>
+                                <p id="resultPrime" class="btn-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#prime").click(
+                                        function () {
+                                            if ($("#number").val() === "") {
+                                                $("#result").text("Invalid entry.  Please make sure to enter a number.");
+                                                return;
+                                            }
+                                            var number = Number($("#number").val());
+                                            if (number == 0 || number == 1 || number == 2) {
+                                                $("#result").text(number + " is not prime");
+                                                return;
+                                            }
+                                            for (var i = 2; i <= Math.sqrt(number); i++) {
+                                                if (number % i == 0) {
+                                                    $("#result").text(number + " is not prime. It is divisible by " + i);
+                                                    return;
+                                                }
+                                            }
+                                            $("#result").text(number + " is prime!")
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Upper Case Modal-->
+    <div class="modal fade" id="myUpperCaseModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Upper Case</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Enter a phrase below and click "Go!" to see what happens!</p>
+                            </div>
+                            <div>
+                                <input id="phrase" type="text" placeholder="Enter phrase" />
+                                <p></p>
+                                <button id="goBtn" class="btn-warning">Go!</button>
+                                <p id="resultUpper" class="btn-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#goBtn").click(
+                                        function () {
+                                            var phrase = $("#phrase").val().toLowerCase();
+                                            var result = "";
+                                            for (var i = 0; i < phrase.length; i++) {
+                                                if (i == 0 || (phrase[i - 1]) == ' ') {
+                                                    result += phrase[i].toUpperCase();
+                                                }
+                                                else {
+                                                    result += phrase[i];
+                                                }
+                                            }
+                                            $("#result").text(result);
+                                        })
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Vowel Count Modal-->
+    <div class="modal fade" id="myVowelModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Vowel Counter</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>
+                                <p>Ever wonder how many vowels are in a phrase?  Click "EIEIO" to find out!</p>
+                            </div>
+                            <div>
+                                <input id="phraseVowel" type="text" placeholder="Enter phrase" />
+                                <p></p>
+                                <button id="eieio">EIEIO</button>
+                                <p id="resultVowel" class="btn-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <pre class="brush:js">
+                                $(document).ready(
+                                    $("#eieio").click(
+                                        function () {
+                                            var phrase = $("#phrase").val().toLowerCase();
+                                            var result = "";
+                                            var count = 0
+                                            for (var i = 0; i < phrase.length; i++)
+                                                if (phrase[i] == "a" || phrase[i] == "e" || phrase [i] == "i" || phrase[i] == "o" || phrase[i] == "u") {
+                                                    result += (phrase[i] + ", ");
+                                                    count++;
+                                                };
+                                            $("#result").text(result + " = " + count + " vowels in your phrase.");
+                                        }
+                                    )
+                                )
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

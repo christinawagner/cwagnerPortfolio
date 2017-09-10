@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -200,8 +201,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HtmlExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JsExerciseViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -209,6 +212,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\SyntaxHighlighter\shCore.css" />
     <Content Include="Content\SyntaxHighlighter\shCoreDefault.css" />
     <Content Include="Content\SyntaxHighlighter\shCoreDjango.css" />
@@ -227,6 +232,7 @@
     <Content Include="Content\SyntaxHighlighter\shThemeMidnight.css" />
     <Content Include="Content\SyntaxHighlighter\shThemeRDark.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -455,10 +461,37 @@
     <Content Include="wwwroot\assets\custom\2.2.0\images\layouts\helena\userpics\userpic08.jpg" />
     <Content Include="wwwroot\assets\custom\2.2.0\images\preloader.gif" />
     <Content Include="wwwroot\assets\custom\2.2.0\images\quote.png" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\5numbers.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\5numbers.js" />
     <Content Include="wwwroot\assets\custom\2.2.0\js\animation.js" />
     <Content Include="wwwroot\assets\custom\2.2.0\js\custom.js" />
     <Content Include="wwwroot\assets\custom\2.2.0\js\development-colors.js" />
-    <Content Include="wwwroot\assets\custom\2.2.0\js\javascriptExercises.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\5numbersIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\alphabetOrder.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\alphabetOrder.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\alphabetOrderIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\combination.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\combination.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\combinationIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\combinatorics.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\Factorial.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\Factorial.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\FactorialIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\FizzBuzz.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\FizzBuzz.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\FizzBuzzIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\Palindrome.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\Palindrome.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\PalindromeIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\primeNumber.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\primeNumber.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\primeNumberIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\upperCase.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\upperCase.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\upperCaseIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\vowelCount.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\vowelCount.js" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\vowelCountIntro.html" />
     <Content Include="wwwroot\assets\custom\2.2.0\php\form.php" />
     <Content Include="wwwroot\assets\custom\2.2.0\scss\css\blue.css" />
     <Content Include="wwwroot\assets\custom\2.2.0\scss\css\default.css" />
@@ -513,6 +546,13 @@
     <Content Include="wwwroot\images\upperCase.jpg" />
     <Content Include="wwwroot\images\vowels.jpg" />
     <Content Include="wwwroot\images\VSH.png" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\PublishProfiles\cwagner-portfolio - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\cwagner-portfolio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -620,6 +660,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Portfolio\JS.cshtml" />
+    <Content Include="Views\Shared\_JavascriptExerciseModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

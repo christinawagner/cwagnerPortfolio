@@ -36,10 +36,10 @@
 
         // Set the recipient email address.
         // FIXME: Update this to your desired email address.
-        $recipient = "your@email.com";
+        $recipient = "cwagner0604@gmail.com";
 
         // Set the email subject.
-        $subject = "New contact from $name";
+        $subject = "New Portfolio message from $name";
 
         // Build the email content.
         $email_content = "Name: $name\n";

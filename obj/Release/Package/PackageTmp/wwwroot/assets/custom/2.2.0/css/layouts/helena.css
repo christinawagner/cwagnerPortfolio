@@ -1,0 +1,50 @@
+/* Main Photo */
+.photo-02 {
+  background: url("../../images/layouts/helena/userpics/userpic00.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 360px; }
+
+/* Helena Timeline */
+.timeline-helena-01,
+.timeline-helena-02,
+.timeline-helena-03,
+.timeline-helena-04,
+.timeline-helena-05{
+  -moz-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; }
+
+.timeline-helena-01 {
+    background: url('../../../../../images/CF.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.timeline-helena-02 {
+    background: url('../../../../../images/VSH.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.timeline-helena-03 {
+    background: url('../../../../../images/CVS.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.timeline-helena-04 {
+    background: url('../../../../../images/CCCC.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.timeline-helena-05 {
+    background: url('../../../../../images/UNCW.jpg');
+    background-position: center;
+    background-size: cover;
+}
+/*# sourceMappingURL=helena.css.map */

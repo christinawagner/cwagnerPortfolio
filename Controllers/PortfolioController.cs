@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using cwagnerPortfolio.Models;
 
 namespace cwagnerPortfolio.Controllers
 {
@@ -17,6 +18,11 @@ namespace cwagnerPortfolio.Controllers
         public ActionResult JS()
         {
             return View();
+        }
+
+        public PartialViewResult LoadJavascriptModal(JsExerciseViewModel model)
+        {
+            return PartialView("_JavascriptExerciseModal", model);
         }
     }
 }
