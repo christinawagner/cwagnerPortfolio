@@ -48,3 +48,43 @@
     background-size: cover;
 }
 /*# sourceMappingURL=helena.css.map */
+
+.customTabs > li > a {
+    border-radius: 0;
+}
+
+.customTabs > li > a:hover {
+    border-radius: 0 !important;
+}
+
+.customModal {
+    border-radius: 0 !important;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.bg-light-grey {
+    background: #F0F0F0
+}
+
+.customTabs > li > a:hover {
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px 1px 0 1px solid #ddd;
+    color: #d0888b;
+}
+
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#jsExerciseModal {
+    padding:10px;
+    height: 800px;
+    max-height: 100%;
+    overflow: auto;
+}
