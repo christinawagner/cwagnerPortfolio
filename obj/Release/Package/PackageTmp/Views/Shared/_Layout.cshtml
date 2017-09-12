@@ -50,7 +50,7 @@
             <div class="row nopadding ident ui-bg-color01">
                 <!-- Photo -->
                 <a href="index.html">
-                    <div class="col-md-4 vc-photo photo-02">&nbsp;</div>
+                    <div class="col-md-4 vc-photo photo-03">&nbsp;</div>
                 </a>
                 <!-- /Photo -->
                 <div class="col-md-8 vc-name nopadding">
@@ -112,60 +112,19 @@
 
     </header>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Container -->
     <div class="content-wrap">
-
-       @RenderBody()
+        @RenderBody()
+        @RenderSection("Scripts", false)
 
     </div>
-
     <footer class="padding-50 dark ui-bg-color01"
             data-animation-origin="top"
             data-animation-duration="500"
             data-animation-delay="800"
             data-animation-distance="50px">
         <div class="container-fluid nopadding">
-            @*<div class="row">
-                <div class="col-sm-3">
-                    <h5 class="font-accident-two-normal uppercase">Gridus HTML Template</h5>
-                    <p class="inline-block">
-                        The Gridus Resume Template has an unique modern flat intuitive design. You can choose one of 8 pre-defined Color schemes.
-                    </p>
-                    <div class="divider-dynamic"></div>
-                </div>
-                <div class="col-sm-3 cv-link">
-                    <h5 class="font-accident-two-normal uppercase">Download cv</h5>
-                    <div class="dividewhite1"></div>
-                    <a href="#!"><i class="fa fa-long-arrow-down" aria-hidden="true"></i>English</a>
-                    <a href="#!"><i class="fa fa-long-arrow-down" aria-hidden="true"></i>German</a>
-                    <a href="#!"><i class="fa fa-long-arrow-down" aria-hidden="true"></i>Spanish</a>
-                    <p class="inline-block">
-                        The CV is in .pdf format. Use the Adobe Reader to open it.
-                    </p>
-                    <div class="divider-dynamic"></div>
-                </div>
-                <div class="col-sm-3">
-                    <h5 class="font-accident-two-normal uppercase">Newsletter</h5>
-                    <div class="dividewhite1"></div>
-                    <input class="newsletter-email" type="email" required="" name="ne" placeholder="Your Email">
-                    <a href="#!" class="btn btn-wh-trans btn-xs">OK</a>
-                    <div class="divider-dynamic"></div>
-                </div>
-                <div class="col-sm-3">
-                    <h5 class="font-accident-two-normal uppercase">Follow me</h5>
-                    <div class="follow">
-                        <ul class="list-inline social">
-                            <li><a target="_blank" href="#" class="rst-icon-facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a target="_blank" href="#" class="rst-icon-twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a target="_blank" href="#" class="rst-icon-pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a target="_blank" href="#" class="rst-icon-instagram"><i class="fa fa-instagram"></i></a></li>
-                            <li><a target="_blank" href="#" class="rst-icon-youtube"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="divider-dynamic"></div>
-                </div>
-            </div>
-            <div class="dividewhite1"></div>*@
             <div class="row">
                 <div class="col-md-12 copyrights">
                     <p>© 2017 Christina Wagner.</p>
@@ -173,37 +132,29 @@
             </div>
         </div>
     </footer>
-
     <!-- Back to Top -->
     <div id="back-top"></div>
     <!-- /Back to Top -->
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
-
     <script src="/wwwroot/assets/vendor/mfp/js/jquery.magnific-popup.min.js?v=1.1.0" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/progressbar/progressbar.min.js?v=1.0.1" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/anicounter/jquery.counterup.min.js?v=1.0" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/pjax/jquery.pjax.min.js?v=1.9.6" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/owl-carousel/owl.carousel.min.js?v=2.1.0" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/headlines/headlines.min.js?v=1.0" type="text/javascript"></script>
-
     <!-- Custom scripts -->
     <script src="/wwwroot/assets/custom/2.2.0/js/animation.js" type="text/javascript"></script>
     @*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsWgr_mdf8Ur18wVezUR-SPIgorZPYEV8&callback=initGmap"
-            type="text/javascript"></script>*@
+        type="text/javascript"></script>*@
     <script src="/wwwroot/assets/custom/2.2.0/js/custom.js" type="text/javascript"></script>
-    <script src="~/wwwroot/assets/custom/2.2.0/js/javascriptExercises.js"></script>
-
     <!--Syntax Highlighter-->
     <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
-    <script>SyntaxHighlighter.all();</script>
 
 </body>
-
-</html>

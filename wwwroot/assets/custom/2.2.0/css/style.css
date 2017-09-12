@@ -1171,7 +1171,7 @@ button, input, select, textarea {
 /* Menu hover effect settings */
 .hvr-sweep-to-bottom:before,
 .hvr-sweep-to-right:before {
-  height: 180px; }
+  height: 120px; }
 
 .hvr-sweep-to-bottom:before {
   background: rgba(0, 0, 0, 0.2); }

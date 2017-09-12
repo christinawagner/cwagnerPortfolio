@@ -1,10 +1,11 @@
 /* Main Photo */
 .photo-02 {
-  background: url("../../images/layouts/helena/userpics/userpic00.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 360px; }
+    background: url("../../../../../images/cwagnerpic.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 360px;
+}
 
 /* Helena Timeline */
 .timeline-helena-01,
@@ -48,3 +49,49 @@
     background-size: cover;
 }
 /*# sourceMappingURL=helena.css.map */
+
+.customTabs > li > a {
+    border-radius: 0;
+}
+
+.customTabs > li > a:hover {
+    border-radius: 0 !important;
+}
+
+.customModal {
+    border-radius: 0 !important;
+    border: none;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.bg-light-grey {
+    background: #F0F0F0
+}
+
+.customTabs > li > a:hover {
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px 1px 0 1px solid #ddd;
+    color: #d0888b;
+}
+
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo-container.hvr-sweep-to-bottom:before {
+    height:180px
+}
+
+.photo-03 {
+    background: url("/images/cwagnerpic.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 360px;
+}

@@ -202,7 +202,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlExtensions.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogComment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JsExerciseViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -535,6 +538,7 @@
     <Content Include="wwwroot\images\CF.jpg" />
     <Content Include="wwwroot\images\combination.jpg" />
     <Content Include="wwwroot\images\CVS.jpg" />
+    <Content Include="wwwroot\images\cwagnerpic.jpg" />
     <Content Include="wwwroot\images\factorial.jpg" />
     <Content Include="wwwroot\images\fizzBuzz.png" />
     <Content Include="wwwroot\images\javaScript.png" />
@@ -660,6 +664,11 @@
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Portfolio\JS.cshtml" />
     <Content Include="Views\Shared\_JavascriptExerciseModal.cshtml" />
+    <Content Include="Views\Blog\Create.cshtml" />
+    <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

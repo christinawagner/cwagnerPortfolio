@@ -1,10 +1,11 @@
 /* Main Photo */
 .photo-02 {
-  background: url("../../images/layouts/helena/userpics/userpic00.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 360px; }
+    background: url("../../images/layouts/helena/userpics/userpic00.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 360px;
+}
 
 /* Helena Timeline */
 .timeline-helena-01,
