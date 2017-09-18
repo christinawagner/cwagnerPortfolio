@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<cwagnerPortfolio.Models.Blog>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -14,321 +15,98 @@
                 data-animation-distance="50px">
                 Blog
             </h2>
-            <h5 class="font-accident-two-bold color01 uppercase subtitle"
-                data-animation-origin="right"
-                data-animation-duration="400"
-                data-animation-delay="200"
-                data-animation-distance="50px">
-                COMING SOON!
-            </h5>
-            <p class="small color01"
-               data-animation-origin="right"
-               data-animation-duration="400"
-               data-animation-delay="300"
-               data-animation-distance="50px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id metus purus. Ut vulputate, est vel tincidunt mattis, orci neque iaculis lectus, et interdum quam felis vel tortor. Fusce ultrices dui quis nunc dignissim faucibus. Ut ac odio quis nibh viverra fringilla ac id nisi. Suspendisse tincidunt augue quis ligula cursus, non efficitur ligula faucibus. Mauris id neque maximus, tincidunt metus et, sodales nulla.
-            </p>
         </div>
     </section>
 
     <!-- Blog Block -->
-    @*<section class="inner-section">
-
+    <section class="inner-section">
+        @Html.Partial("_LoginPartial")
         <div class="container-fluid nopadding">
-            <div class="row">
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Create New", "Create");
 
-                <article id="01" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Europe &nbsp;/</a>&nbsp;<a href="#!" rel="category tag">Travel</a>
+                foreach (var item in Model)
+                {
+                    <div class="row">
+                        <article id="01" class="post-block col-md-12 post hentry"
+                                 data-animation-origin="top"
+                                 data-animation-duration="500"
+                                 data-animation-delay="500"
+                                 data-animation-distance="30px">
+                            <div class="post-detail">
+                                <div class="dividewhite2"></div>
+                                <h3 class="entry-title"><a href="@Url.Action("BlogPost", "Blog")">@Html.DisplayFor(modelItem => item.Title)</a></h3>
+                                <div class="metas">
+                                    Posted on: <a href="#!" class="meta-date">@Html.DisplayFor(modelItem => item.Created)</a>/&nbsp;
+                                    Posted by: <a href="#!" class="meta-author">Christina</a>/&nbsp;
+                                    <a href="#!" class="meta-comment">0 Comment</a>
+                                </div>
+                            </div>
+                            <div class="img-wrap">
+                                <a href="@Url.Action("BlogPost", "Blog")">
+                                    @Html.DisplayFor(modelItem => item.MediaUrl)
+                                </a>
+                            </div>
+                            <div class="post-excerpt">
+                                <p>@Html.Raw(item.Body)</p>
+                            </div>
+                            <div class="">
+                                <a href="@Url.Action("Details", "Blog", new { item.Slug })" class="btn btn-default btn-darker">Continue reading...</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { item.Id }) <span> | </span>;
+                                    @Html.ActionLink("Delete", "Delete", new { item.Id });
+                                }
+                            </div>
+                        </article>
+                    </div>
+                }
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    if (item.Published == true)
+                    {
+                        <div class="row">
+                            <article id="01" class="post-block col-md-12 post hentry"
+                                     data-animation-origin="top"
+                                     data-animation-duration="500"
+                                     data-animation-delay="500"
+                                     data-animation-distance="30px">
+                                <div class="post-detail">
+                                    <div class="dividewhite2"></div>
+                                    <h3 class="entry-title"><a href="@Url.Action("BlogPost", "Blog")">@Html.DisplayFor(modelItem => item.Title)</a></h3>
+                                    <div class="metas">
+                                        Posted on: <a href="#!" class="meta-date">@Html.DisplayFor(modelItem => item.Created)</a>/&nbsp;
+                                        Posted by: <a href="#!" class="meta-author">Christina</a>/&nbsp;
+                                        <a href="#!" class="meta-comment">0 Comment</a>
+                                    </div>
+                                </div>
+                                <div class="img-wrap">
+                                    <a href="@Url.Action("BlogPost", "Blog")">
+                                        @Html.DisplayFor(modelItem => item.MediaUrl)
+                                    </a>
+                                </div>
+                                <div class="post-excerpt">
+                                    <p>@Html.Raw(item.Body)</p>
+                                </div>
+                                <div class="">
+                                    <a href="@Url.Action("Details", "Blog", new { item.Slug })" class="btn btn-default btn-darker">Continue reading...</a>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        @Html.ActionLink("Edit", "Edit", new { item.Id }) <span> | </span>;
+                                        @Html.ActionLink("Delete", "Delete", new { item.Id });
+                                    }
+                                </div>
+                            </article>
                         </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">Elegant, Simple &amp; Awesome Blog</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap">
-                        <a href="blogpost.html">
-                            <img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/01.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-excerpt">
-                        <p>Travel is the movement of people between relatively distant geographical locations, and can involve travel by foot, bicycle, automobile, train, boat, airplane, or other means, with or without luggage, and can be one way or round trip. Travel can also include relatively short stays between successive movements...</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="02" class="post-block col-md-12 post hentry" data-section="owl-carousel"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Blogging &nbsp;/</a>&nbsp;<a href="#!" rel="category tag">Leadership</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">This is a Slider for Gallery Post Type – Enjoy Browsing Your Beautiful Photos</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap">
-                        <div class="owl-carousel owl-theme">
-                            <div class="item"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/02.jpg" alt=""></div>
-                            <div class="item"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/05.jpg" alt=""></div>
-                            <div class="item"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/09.jpg" alt=""></div>
-                        </div>
-                    </div>
-                    <div class="post-excerpt">
-                        <p>Indigo is a color that is traditionally regarded as a color in the visible spectrum, as well as one of the seven colors of the rainbow: the color between blue and violet. Although traditionally considered one of seven major spectral colors, sources differ as to its actual position in the electromagnetic spectrum.…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="03" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Blogging &nbsp;/</a>&nbsp;<a href="#!" rel="category tag">Leadership</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">Vimeo Post with auto get thumbnail</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe src="https://player.vimeo.com/video/111593305?color=ffffff&byline=0&portrait=0" width="640" height="268" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="post-excerpt">
-                        <p>The Mini, which includes a number of different models produced by BMW since 2000. A number of different models have cars with the "Mini Cooper" title, including the Mini Hatch, the Mini Convertible, the Mini Clubman, the Mini Countryman, the Mini Coupé, the Mini Roadster, and the Mini Paceman…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="04" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Uncategorized</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">This is a Quote Post</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap">
-                        <a href="blogpost.html">
-                            <img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/06.jpg" alt="">
-                        </a>
-                    </div>
-                    <blockquote>
-                        If you live long enough, you'll make mistakes. But if you learn from them, you'll be a better person. It's how you handle adversity, not how it affects you. The main thing is never quit, never quit, never quit.
-                        <footer>William J. Clinton</footer>
-                    </blockquote>
-                    <div class="post-excerpt"></div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="05" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Video</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">This is Video Post Using Youtube Embed Codes</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/z9iPpu00UWY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="post-excerpt">
-                        <p>Garden design is the art and process of designing and creating plans for layout and planting of gardens and landscapes. Garden design may be done by the garden owner themselves, or by professionals of varying levels of experience and expertise.…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="06" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Holidays</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">This is a SoundCloud Post</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap">
-                        <iframe width="100%" height="166" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/249027617&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-                    </div>
-                    <div class="post-excerpt">
-                        <p>Geographically, Tunisia contains the eastern end of the Atlas Mountains and the northern reaches of the Sahara desert. Much of the rest of the country's land is fertile soil. Its 1,300 kilometres (810 miles) of coastline includes the African conjunction of the western and eastern parts of the Mediterranean Basin and, by means of the Sicilian Strait and Sardinian Channel, features the African mainland's second and third nearest points to Europe after Gibraltar.…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="07" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Uncategorized</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">Greece Vacation in August</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-                    <div class="img-wrap"><a href="blogpost.html"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/07.jpg" alt=""></a></div>
-                    <div class="post-excerpt">
-                        <p>Outside the European context, emperor was the translation given to holders of titles who were accorded the same precedence as European emperors in diplomatic terms. In reciprocity, these rulers might accredit equal titles in their native languages to their European peers. Through centuries of international convention, this has become the dominant rule to identifying an emperor in the modern era.…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="08" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Holidays</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">15 Places To Get That Holiday Trip Tan</a></h3> <!-- Post Title-->
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-
-                    <div class="img-wrap"><a href="blogpost.html"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/09.jpg" alt=""></a></div>
-                    <div class="post-excerpt">
-                        <p>Because perception of color stems from the varying spectral sensitivity of different types of cone cells in the retina to different parts of the spectrum, colors may be defined and quantified by the degree to which they stimulate these cells. These physical or physiological quantifications of color, however, do not fully explain the psychophysical perception of color appearance.…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="09" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Travel</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">5 Tips for Successful typing</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-
-                    <div class="img-wrap"><a href="blogpost.html"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/10.jpg" alt=""></a></div>
-                    <div class="post-excerpt">
-                        <p>Mathematical symmetry may be observed with respect to the passage of time; as a spatial relationship; through geometric transformations such as scaling, reflection, and rotation; through other kinds of functional transformations; and as an aspect of abstract objects, theoretic models, language, music and even knowledge itself…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <article id="10" class="post-block col-md-12 post hentry"
-                         data-animation-origin="top"
-                         data-animation-duration="500"
-                         data-animation-delay="500"
-                         data-animation-distance="30px">
-                    <div class="post-detail">
-                        <div class="meta-cat">
-                            <a href="#!" rel="category tag">Europe &nbsp;/</a>&nbsp;<a href="#!" rel="category tag">Travel</a>
-                        </div>
-                        <div class="dividewhite2"></div>
-                        <h3 class="entry-title"><a href="blogpost.html">Emma is an Elegant, Simple &amp; Minimalist Blog comes with Lots of Features</a></h3>
-                        <div class="metas">
-                            Posted on: <a href="#!" class="meta-date">29 July</a>/&nbsp;
-                            Posted by: <a href="#!" class="meta-author">admin</a>/&nbsp;
-                            <a href="#!" class="meta-comment">0 Comment</a>
-                        </div>
-                    </div>
-
-                    <div class="img-wrap"><a href="blogpost.html"><img class="img-responsive" src="assets/custom/2.2.0/images/layouts/helena/blog/feed/11.jpg" alt=""></a></div>
-                    <div class="post-excerpt">
-                        <p>Psychologists explore concepts such as perception, cognition, attention, emotion, intelligence, phenomenology, motivation, brain functioning, personality, behavior, and interpersonal relationships, including psychological resilience, family resilience, and other areas. Psychologists of diverse orientations also consider the unconscious mind.…</p>
-                    </div>
-                    <div class="">
-                        <a href="blogpost.html" class="btn btn-default btn-darker">Continue reading...</a>
-                    </div>
-                </article>
-
-                <!--Pagination-->
-                <div class="col-md-12"
+                    }
+                }
+            }
+            <!--Pagination-->
+            @*<div class="col-md-12"
                      data-animation-origin="top"
                      data-animation-duration="500"
                      data-animation-delay="600"
@@ -343,15 +121,10 @@
                         </nav>
                         <div class="dividewhite6"></div>
                     </div>
-                </div>
-                <!--/Pagination-->
-
-
-            </div>
-
+                </div>*@
+            <!--/Pagination-->
         </div>
-
-    </section>*@
+    </section>
     <!-- /Blog Block -->
 
 </div>

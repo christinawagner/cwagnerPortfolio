@@ -1,4 +1,5 @@
-﻿
+﻿@model cwagnerPortfolio.Models.EmailModel
+
 @{
     ViewBag.Title = "Index";
 }
@@ -18,8 +19,7 @@
                 data-animation-origin="right"
                 data-animation-duration="400"
                 data-animation-delay="200"
-                data-animation-distance="50px">
-            </h5>
+                data-animation-distance="50px"></h5>
             <p class="small color01"
                data-animation-origin="right"
                data-animation-duration="400"
@@ -58,28 +58,42 @@
                      data-animation-distance="25px">
                     <div class="dividewhite4"></div>
                     <div id="form-messages"></div>
-                    <form id="ajax-contact" method="post" action="assets/custom/2.2.0/php/form.php" class="wpcf7-form">
-                        <div class="field">
-                            <!--<label for="name">Name:</label>-->
-                            <input type="text" id="name" name="name" placeholder="Name" required>
-                        </div>
+                    @using (Html.BeginForm("Contact","Feedback", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="wpcf7-form">
+                            @Html.ValidationSummary("", new { @class="text-danger"})
+                            <div class="field">
+                                @Html.LabelFor(m => m.FromName, new { @class = "col-md-offset-0 control-label" })
+                                <input type="text" id="FromName" name="FromName" placeholder="Name" required>
+                                @Html.ValidationMessageFor(m => m.FromName)
+                            </div>
 
-                        <div class="field">
-                            <!--<label for="email">Email:</label>-->
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
+                            <div class="field">
+                                @Html.LabelFor(m => m.FromEmail, new { @class= "col-md-offset-0 control-label" })
+                                <input type="email" id="FromEmail" name="FromEmail" placeholder="Email address" required>
+                                @Html.ValidationMessageFor(m => m.FromEmail)
+                            </div>
 
-                        <div class="field">
-                            <!--<label for="message">Message:</label>-->
-                            <textarea id="message" name="message" placeholder="Message" rows="7" cols="30" required></textarea>
-                        </div>
+                            <div class="field">
+                                @Html.LabelFor(m => m.Subject, new { @class = "col-md-offset-0 control-label" })
+                                <input type="text" id="Subject" name="Subject" placeholder="Subject" required>
+                                @Html.ValidationMessageFor(m => m.Subject)
+                            </div>
 
-                        <div class="dividewhite2"></div>
+                            <div class="field">
+                                @Html.LabelFor(m => m.Body, new { @class = "col-md-offset-0 control-label" })
+                                <textarea id="Body" name="Body" placeholder="Message" rows="7" cols="30" required></textarea>
+                                @Html.ValidationMessageFor(m => m.Body)
+                            </div>
 
-                        <div class="field text-center">
-                            <button type="submit" class="btn btn-lg btn-darker">Send Message</button>
+                            <div class="dividewhite2"></div>
+
+                            <div class="field text-center">
+                                <button type="submit" class="btn btn-lg btn-darker">Send Message</button>
+                            </div>
                         </div>
-                    </form>
+                    }
                 </div>
                 <div class="col-md-2">&nbsp;</div>
                 <div class="col-md-12 divider-dynamic"></div>

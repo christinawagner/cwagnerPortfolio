@@ -31,7 +31,7 @@
     <link href="/wwwroot/assets/custom/2.2.0/css/style.css" property='stylesheet' rel="stylesheet" type="text/css" media="screen" />
     <link href="/wwwroot/assets/custom/2.2.0/css/layouts/helena.css" property='stylesheet' rel="stylesheet" type="text/css" media="screen" />
     <link href="/wwwroot/assets/custom/2.2.0/css/colors/pastel.css" id="color-styles" property='stylesheet' rel="stylesheet" type="text/css" media="screen" />
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/2.2.1/pretty.min.css" rel="stylesheet" />
     <!--Syntax Highlighter-->
     <link href="~/Content/SyntaxHighlighter/shCore.css" rel="stylesheet" />
     <link href="~/Content/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
@@ -50,7 +50,7 @@
             <div class="row nopadding ident ui-bg-color01">
                 <!-- Photo -->
                 <a href="index.html">
-                    <div class="col-md-4 vc-photo photo-03">&nbsp;</div>
+                    <div class="col-md-4 photo-03 vc-photo">&nbsp;</div>
                 </a>
                 <!-- /Photo -->
                 <div class="col-md-8 vc-name nopadding">
@@ -113,10 +113,10 @@
     </header>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Container -->
     <div class="content-wrap">
         @RenderBody()
-        @RenderSection("Scripts", false)
 
     </div>
     <footer class="padding-50 dark ui-bg-color01"
@@ -137,7 +137,6 @@
     <!-- /Back to Top -->
     <!-- JS -->
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
@@ -145,7 +144,7 @@
     <script src="/wwwroot/assets/vendor/mfp/js/jquery.magnific-popup.min.js?v=1.1.0" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/progressbar/progressbar.min.js?v=1.0.1" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/anicounter/jquery.counterup.min.js?v=1.0" type="text/javascript"></script>
-    <script src="/wwwroot/assets/vendor/pjax/jquery.pjax.min.js?v=1.9.6" type="text/javascript"></script>
+    @*<script src="/wwwroot/assets/vendor/pjax/jquery.pjax.min.js?v=1.9.6" type="text/javascript"></script>*@
     <script src="/wwwroot/assets/vendor/owl-carousel/owl.carousel.min.js?v=2.1.0" type="text/javascript"></script>
     <script src="/wwwroot/assets/vendor/headlines/headlines.min.js?v=1.0" type="text/javascript"></script>
     <!-- Custom scripts -->
@@ -156,5 +155,8 @@
     <!--Syntax Highlighter-->
     <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    @RenderSection("Scripts", false)
+    
 
 </body>
+</html>

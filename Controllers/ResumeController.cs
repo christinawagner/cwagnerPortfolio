@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace cwagnerPortfolio.Controllers
 {
+    [RequireHttps]
     public class ResumeController : Controller
     {
         // GET: Resume

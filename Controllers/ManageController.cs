@@ -10,6 +10,7 @@ using cwagnerPortfolio.Models;
 
 namespace cwagnerPortfolio.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class ManageController : Controller
     {

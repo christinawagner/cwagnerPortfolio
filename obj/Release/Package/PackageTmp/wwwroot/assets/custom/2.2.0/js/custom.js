@@ -88,7 +88,7 @@
         (function () {
 
             if (ajaxLoadingEnabled()) {
-                $(document).pjax('a', '.content-wrap', {fragment: '.content-wrap', scrollTo: false});
+                //$(document).pjax('a', '.content-wrap', {fragment: '.content-wrap', scrollTo: false});
 
                 $(document).on('pjax:click', function (event) {
                     if (!ajaxLoadingEnabled()) {

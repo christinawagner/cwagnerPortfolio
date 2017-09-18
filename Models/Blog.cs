@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,10 +13,12 @@ namespace cwagnerPortfolio.Models
         public string Title { get; set; }
         public string Slug { get; set; }
         [AllowHtml]
+        [Required]
         public string Body { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Updated { get; set; }
         public string MediaUrl { get; set; }
+        public bool Published { get; set; }
 
         public virtual ICollection<BlogComment>Comments { get; set; }
 

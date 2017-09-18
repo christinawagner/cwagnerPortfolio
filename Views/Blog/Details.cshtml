@@ -1,66 +1,71 @@
 ﻿@model cwagnerPortfolio.Models.Blog
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Title;
 }
 
-<h2>Details</h2>
+<div id="blogpost" class="inner-content">
 
-<div>
-    <h4>Blog</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    <section id="page-title" class="inner-section"
+             data-animation-origin="right"
+             data-animation-duration="500"
+             data-animation-delay="300"
+             data-animation-distance="25px">
+        <div class="container-fluid nopadding">
+            @Html.Partial("_LoginPartial")
+            <h2 class="font-accident-two-normal uppercase">@Html.DisplayFor(model => model.Title)</h2>
+            <div class="post-meta"><span>by <a>Christina</a>,</span> <span>@Html.DisplayFor(model => model.Created.Date)</span></div>
+        </div>
+    </section>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+    <!-- Blog Block -->
+    <section class="inner-section">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Slug)
-        </dt>
+        <div class="container-fluid nopadding">
 
-        <dd>
-            @Html.DisplayFor(model => model.Slug)
-        </dd>
+            <img src="@Html.DisplayFor(model => model.MediaUrl)" class="img-responsive"
+                 data-animation-origin="top"
+                 data-animation-duration="500"
+                 data-animation-delay="300"
+                 data-animation-distance="25px">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
+            <article class="post"
+                     data-animation-origin="top"
+                     data-animation-duration="500"
+                     data-animation-delay="300"
+                     data-animation-distance="25px">
 
-        <dd>
-            @Html.DisplayFor(model => model.Body)
-        </dd>
+                <div class="dividewhite6"></div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
+                <!-- Post Content -->
+                @Html.Raw(Model.Body)
+                <!-- /Post Content -->
 
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
+                <div class="dividewhite4"></div>
+                <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Updated)
-        </dt>
+            </article>
 
-        <dd>
-            @Html.DisplayFor(model => model.Updated)
-        </dd>
+        </div>
+        <div class="dividewhite8"></div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MediaUrl)
-        </dt>
+        <p>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span> | </span>;
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) <span> | </span>;
+                @Html.ActionLink("Back to List", "Index");
+            }
+            else if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Back to List", "Index");
+            }
+            else
+            {
+                @Html.ActionLink("Back to List", "Index");
+            }
+        </p>
+    </section>
+    <!-- /Blog Block -->
 
-        <dd>
-            @Html.DisplayFor(model => model.MediaUrl)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -7,6 +7,7 @@ using cwagnerPortfolio.Models;
 
 namespace cwagnerPortfolio.Controllers
 {
+    [RequireHttps]
     public class PortfolioController : Controller
     {
         // GET: Portfolio
@@ -16,6 +17,11 @@ namespace cwagnerPortfolio.Controllers
         }
 
         public ActionResult JS()
+        {
+            return View();
+        }
+
+        public ActionResult ShoppingApp()
         {
             return View();
         }

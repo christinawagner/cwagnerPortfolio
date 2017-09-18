@@ -11,6 +11,17 @@ namespace cwagnerPortfolio
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+            routes.MapRoute(
+                name: "NewSlug",
+                url: "BlogPost/{slug}",
+                defaults: new
+                {
+                    controller = "Blog",
+                    action = "Details",
+                    slug = UrlParameter.Optional
+                });
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
@@ -18,6 +29,7 @@ namespace cwagnerPortfolio
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            
         }
     }
 }
