@@ -707,6 +707,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="private.config" />
+    <Content Include="connectionStrings.config" />
     <None Include="Properties\PublishProfiles\cwagner-portfolio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\cwagner-portfolio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
