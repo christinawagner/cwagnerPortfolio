@@ -12,11 +12,12 @@ namespace cwagnerPortfolio.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Slug { get; set; }
-        [AllowHtml]
         [Required]
+        [AllowHtml]
         public string Body { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Updated { get; set; }
+        [Display(Name = "Image")]
         public string MediaUrl { get; set; }
         public bool Published { get; set; }
 

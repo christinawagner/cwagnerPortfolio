@@ -237,9 +237,11 @@ namespace cwagnerPortfolio.Controllers
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
                 if (user != null)
                 {
+                    user.ForcePasswordReset = false;
+                    await UserManager.UpdateAsync(user);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", "Blog");
             }
             AddErrors(result);
             return View(model);
@@ -266,9 +268,11 @@ namespace cwagnerPortfolio.Controllers
                     var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
                     if (user != null)
                     {
+                        user.ForcePasswordReset = false;
+                        await UserManager.UpdateAsync(user);
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     }
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
+                    return RedirectToAction("Index", "Blog");
                 }
                 AddErrors(result);
             }

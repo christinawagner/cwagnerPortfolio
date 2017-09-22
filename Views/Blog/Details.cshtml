@@ -13,8 +13,8 @@
              data-animation-distance="25px">
         <div class="container-fluid nopadding">
             @Html.Partial("_LoginPartial")
-            <h2 class="font-accident-two-normal uppercase">@Html.DisplayFor(model => model.Title)</h2>
-            <div class="post-meta"><span>by <a>Christina</a>,</span> <span>@Html.DisplayFor(model => model.Created.Date)</span></div>
+            <h2 class="font-accident-two-normal uppercase">@Model.Title</h2>
+            <div class="post-meta"><span>by <a>Christina</a>,</span> <span>@Model.Created.ToString("d")</span></div>
         </div>
     </section>
 
@@ -23,7 +23,8 @@
 
         <div class="container-fluid nopadding">
 
-            <img src="@Html.DisplayFor(model => model.MediaUrl)" class="img-responsive"
+            <img src="@Model.MediaUrl" class="img-responsive"
+                 alt=""
                  data-animation-origin="top"
                  data-animation-duration="500"
                  data-animation-delay="300"
@@ -42,30 +43,81 @@
                 <!-- /Post Content -->
 
                 <div class="dividewhite4"></div>
+                <p class="post-meta">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span> | </span>;
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) <span> | </span>;
+                        @Html.ActionLink("Back to List", "Index");
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Back to List", "Index");
+                    }
+                </p>
                 <hr>
 
             </article>
-
         </div>
-        <div class="dividewhite8"></div>
+        <div class="dividewhite2"></div>
+        <h3 class="font-accident-two-normal uppercase text-center">Comments</h3>
+        <div class="col-md-12 e-centered"
+             data-animation-origin="top"
+             data-animation-duration="500"
+             data-animation-delay="600"
+             data-animation-distance="25px">
+            <div id="form-messages"></div>
+            <div class="dividewhite2"></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                using (Html.BeginForm("Create", "BlogComment", new { blogId = Model.Id }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
 
-        <p>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span> | </span>;
-                @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) <span> | </span>;
-                @Html.ActionLink("Back to List", "Index");
+                    <div class="form-horizontal">
+                        <div class="wpcf7-form">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="field">
+                                <textarea type="text" id="Body" name="Body" placeholder="Leave a comment" rows="3" cols="30" required></textarea>
+                            </div>
+                            <div class="dividewhite2"></div>
+                            <div class="field text-center">
+                                <button type="submit" class="btn btn-lg btn-darker">Submit</button>
+                                <div class="dividewhite2"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
             }
-            else if (Request.IsAuthenticated)
+            @foreach (var item in Model.Comments)
             {
-                @Html.ActionLink("Back to List", "Index");
+                <div class="row">
+                    <article id="01" class="post-block col-sm-12 post hentry"
+                             data-animation-origin="top"
+                             data-animation-duration="500"
+                             data-animation-delay="500"
+                             data-animation-distance="30px">
+                            <div class="">
+                                <p>@item.Body</p>
+                            </div>
+                            <div class="post-meta">
+                                Posted on: <a class="meta-date">@item.Created.ToString("d")</a>&nbsp;
+                                Posted by: <a class="meta-author">@item.Author.FullName</a>&nbsp;
+                                <div>
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                    {
+                                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span> | </span>;
+                                        @Html.ActionLink("Delete", "Delete", new { id = Model.Id });
+                                    }
+                                </div>
+                            </div>
+                        <hr />
+                    </article>
+                </div>
             }
-            else
-            {
-                @Html.ActionLink("Back to List", "Index");
-            }
-        </p>
+        </div>
+
+
     </section>
     <!-- /Blog Block -->
-
 </div>

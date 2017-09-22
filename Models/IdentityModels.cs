@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -18,7 +19,13 @@ namespace cwagnerPortfolio.Models
                 return FirstName + " " + LastName;
             }
         }
+        public bool ForcePasswordReset { get; set; }
+        public ApplicationUser()
+        {
+            Comments = new HashSet<BlogComment>();
+        }
 
+        public ICollection<BlogComment> Comments { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -41,6 +48,6 @@ namespace cwagnerPortfolio.Models
         }
 
         public DbSet<Blog> Posts { get; set; }
-        public DbSet<BlogComment> Comments { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
     }
 }

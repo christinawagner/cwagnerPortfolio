@@ -1,13 +1,12 @@
-﻿@model IEnumerable<cwagnerPortfolio.Models.Blog>
+﻿@model IPagedList<cwagnerPortfolio.Models.Blog>
+@using PagedList;
+@using PagedList.Mvc;
+@*<link href="~/Content/PagedList.css" rel="stylesheet" />*@
 
 @{
     ViewBag.Title = "Index";
 }
-<style>
-    p {
-        line-height: 1.5;
-    }
-</style>
+
 <div id="blog-list" class="inner-content">
 
     <section id="page-title" class="inner-section ui-menu-color06">
@@ -24,108 +23,87 @@
 
     <!-- Blog Block -->
     <section class="inner-section">
-        @Html.Partial("_LoginPartial")
-        <div class="container-fluid nopadding">
+        <div style="display:block">
             @if (User.IsInRole("Admin"))
             {
                 @Html.ActionLink("Create New", "Create");
+            }
+        </div>
+        <div class="dividewhite2"></div>
 
-                foreach (var item in Model)
-                {
-                    <div class="row">
-                        <article id="01" class="post-block col-md-12 post hentry"
-                                 data-animation-origin="top"
-                                 data-animation-duration="500"
-                                 data-animation-delay="500"
-                                 data-animation-distance="30px">
-                            <div class="post-detail">
-                                <div class="dividewhite2"></div>
-                                <h3 class="entry-title"><a href="@Url.Action("BlogPost", "Blog")">@Html.DisplayFor(modelItem => item.Title)</a></h3>
-                                <div class="metas">
-                                    Posted on: <a href="#!" class="meta-date">@Html.DisplayFor(modelItem => item.Created)</a>/&nbsp;
-                                    Posted by: <a href="#!" class="meta-author">Christina</a>/&nbsp;
-                                    <a href="#!" class="meta-comment">0 Comment</a>
-                                </div>
-                            </div>
-                            <div class="img-wrap">
-                                <a href="@Url.Action("BlogPost", "Blog")">
-                                    @Html.DisplayFor(modelItem => item.MediaUrl)
-                                </a>
-                            </div>
-                            <div class="post-excerpt">
-                                <p>@Html.Raw(item.Body)</p>
-                            </div>
-                            <div class="">
-                                <a href="@Url.Action("Details", "Blog", new { item.Slug })" class="btn btn-default btn-darker">Continue reading...</a>
-                                @if (User.IsInRole("Admin"))
-                                {
-                                    @Html.ActionLink("Edit", "Edit", new { item.Id }) <span> | </span>;
-                                    @Html.ActionLink("Delete", "Delete", new { item.Id });
-                                }
-                            </div>
-                        </article>
-                    </div>
-                }
-            }
-            else
+        @using (Html.BeginForm("Index", "Blog", FormMethod.Post))
             {
-                foreach (var item in Model)
-                {
-                    if (item.Published == true)
-                    {
-                        <div class="row">
-                            <article id="01" class="post-block col-md-12 post hentry"
-                                     data-animation-origin="top"
-                                     data-animation-duration="500"
-                                     data-animation-delay="500"
-                                     data-animation-distance="30px">
-                                <div class="post-detail">
-                                    <div class="dividewhite2"></div>
-                                    <h3 class="entry-title"><a href="@Url.Action("Details", "Blog")">@Html.DisplayFor(modelItem => item.Title)</a></h3>
-                                    <div class="metas">
-                                        Posted on: <a class="meta-date">@Html.DisplayFor(modelItem => item.Created)</a>/&nbsp;
-                                        Posted by: <a class="meta-author">Christina</a>/&nbsp;
-                                        <a href="#!" class="meta-comment">0 Comment</a>
-                                    </div>
-                                </div>
-                                <div class="img-wrap">
-                                    <a href="@Url.Action("BlogPost", "Blog")">
-                                        @Html.DisplayFor(modelItem => item.MediaUrl)
-                                    </a>
-                                </div>
-                                <div class="blog-excerpt">
-                                    @Html.Raw(item.Body)
-                                </div>
-                                <div class="">
-                                    <a href="@Url.Action("Details", "Blog", new { item.Slug })" class="btn btn-default btn-darker">Continue reading...</a>
-                                    @if (User.IsInRole("Admin"))
-                                    {
-                                        @Html.ActionLink("Edit", "Edit", new { item.Id }) <span> | </span>;
-                                        @Html.ActionLink("Delete", "Delete", new { item.Id });
-                                    }
-                                </div>
-                            </article>
+            <div class="col-md-offset-4 e-centered pull-left"
+                 data-animation-origin="top"
+                 data-animation-duration="500"
+                 data-animation-delay="600"
+                 data-animation-distance="25px">
+                <input name="searchStr" type="text" placeholder="Search" value="@ViewBag.Search" />
+                <div class="dividewhite2"></div>
+                <button type="submit" class="btn btn-lg btn-darker">Search</button>
+            </div>
+        }
+        @Html.Partial("_LoginPartial")
+        <div class="container-fluid nopadding">
+
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <article id="01" class="post-block col-md-12 post hentry"
+                             data-animation-origin="top"
+                             data-animation-duration="500"
+                             data-animation-delay="500"
+                             data-animation-distance="30px">
+                        <div class="post-detail">
+                            <div class="dividewhite2"></div>
+                            <h3 class="entry-title"><a href="@Url.Action("Details", "Blog")">@Html.DisplayFor(modelItem => item.Title)</a></h3>
+                            <div class="metas">
+                                Posted on: <a href="#!" class="meta-date">@item.Created.ToString("d")</a>/&nbsp;
+                                Posted by: <a href="#!" class="meta-author">Christina</a>/&nbsp;
+                                <a href="#!" class="meta-comment">0 Comment</a>
+                            </div>
                         </div>
-                    }
-                }
-            }
-            <!--Pagination-->
-            @*<div class="col-md-12"
-                     data-animation-origin="top"
-                     data-animation-duration="500"
-                     data-animation-delay="600"
-                     data-animation-distance="30px">
-                    <div id="tf-pagination">
-                        <nav class="wp-pagenavi">
-                            <span class="page-numbers current">1</span>
-                            <a class="page-numbers" href="#!">2</a>
-                            <a class="next page-numbers" href="#!">
-                                <i class="fa fa-angle-double-right"></i>
+                        <div class="img-wrap">
+                            <a href="@Url.Action("Details", "Blog")">
+                                @if (item.MediaUrl != null)
+                                {
+                                    <img class="img-responsive" src="@item.MediaUrl" alt="" />
+                                }
                             </a>
-                        </nav>
-                        <div class="dividewhite6"></div>
-                    </div>
-                </div>*@
+                        </div>
+                        <div class="blog-body">
+                            <p>@Html.Raw(item.Body)</p>
+                        </div>
+                        <div class="">
+                            <a href="@Url.Action("Details", "Blog", new { item.Slug })" class="btn btn-default btn-darker">Continue reading...</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { item.Id }) <span> | </span>;
+                                @Html.ActionLink("Delete", "Delete", new { item.Id });
+                            }
+                        </div>
+                    </article>
+                </div>
+            }
+
+            <!--Pagination-->
+            <div class="col-md-12"
+                 data-animation-origin="top"
+                 data-animation-duration="500"
+                 data-animation-delay="600"
+                 data-animation-distance="30px">
+                <div id="tf-pagination">
+                    <nav class="wp-pagenavi">
+                        <span>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))</span>
+                        @*<span class="page-numbers current">@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)</span>
+                            <a class="page-numbers" href="@Url.Action("Index", Page)">@((Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) + 1)</a>
+                            <a class="next page-numbers" href="!#">
+                                <i class="fa fa-angle-double-right"></i>
+                            </a>*@
+                    </nav>
+                    <div class="dividewhite6"></div>
+                </div>
+            </div>
             <!--/Pagination-->
         </div>
     </section>
@@ -135,13 +113,15 @@
 @section scripts{
     <script src="~/Scripts/jquery.dotdotdot.js"></script>
     <script>
-        $(".blog-excerpt").dotdotdot({
-            ellipsis: '...',
-            wrap: 'letter',
-            truncate: 'letter',
-            fallbackToLetter: 'letter',
-            after: null,
-            tolerance: 0
+        $(function () {
+            $(".blog-body").dotdotdot({
+                ellipsis: '...',
+                wrap: 'letter',
+                truncate: 'letter',
+                fallbackToLetter: 'letter',
+                after: null,
+                tolerance: 0
             });
+        });
     </script>
 }

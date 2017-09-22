@@ -95,3 +95,7 @@
     background-size: cover;
     min-height: 360px;
 }
+
+.blog-body {
+    height: 100px;
+}

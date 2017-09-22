@@ -50,7 +50,8 @@ namespace cwagnerPortfolio.Migrations
                     Email = "mjaang@coderfoundry.com",
                     FirstName = "Mark",
                     LastName = "Jaang",
-                }, "Password-1");
+                    ForcePasswordReset = true,
+                }, "Password1!");
             }
             var moderatorUserId1 = userManager.FindByEmail("mjaang@coderfoundry.com").Id;
             userManager.AddToRole(moderatorUserId1, "Moderator");
@@ -63,7 +64,8 @@ namespace cwagnerPortfolio.Migrations
                     Email = "rchapman@coderfoundry.com",
                     FirstName = "Ryan",
                     LastName = "Chapman",
-                }, "Password-1");
+                    ForcePasswordReset = true,
+                }, "Password1!");
             }
             var moderatorUserId2 = userManager.FindByEmail("rchapman@coderfoundry.com").Id;
             userManager.AddToRole(moderatorUserId2, "Moderator");

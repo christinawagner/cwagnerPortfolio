@@ -29,7 +29,7 @@
                      data-animation-delay="600"
                      data-animation-distance="25px">
                     <div id="form-messages"></div>
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("Create", "Blog", FormMethod.Post,new { enctype = "Multipart/form-data" } ))
                     {
                         @Html.AntiForgeryToken()
 
@@ -45,13 +45,13 @@
 
                                 <div class="field">
                                     @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-offset-0" })
-                                    @Html.EditorFor(model => model.Body, new { id = "createBody", placeholder = "Body", rows = 7, cols = 30 })
+                                    <textarea id="Body" name="Body" placeholder="Body" rows="7" cols="30"></textarea>
                                     @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="field">
                                     @Html.LabelFor(model => model.MediaUrl, htmlAttributes: new { @class = "control-label col-md-offset-0" })
-                                    <input type="text" id="MediaUrl" name="MediaUrl" placeholder="MediaUrl">
+                                    <input type="file" id="MediaUrl" name="MediaUrl" placeholder="MediaUrl" class="form-control">
                                     @Html.ValidationMessageFor(model => model.MediaUrl, "", new { @class = "text-danger" })
                                 </div>
 
@@ -83,10 +83,12 @@
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
     <script type="text/javascript">
+        $(function () {
             tinymce.init({
                 selector: '#Body',
-                plugins: "textcolor colorpicker emoticons",
-                toolbar: "forecolor backcolor emoticons"
+                plugins: "textcolor colorpicker emoticons link",
+                toolbar: "forecolor backcolor emoticons link"
             });
+        });
     </script>
 }

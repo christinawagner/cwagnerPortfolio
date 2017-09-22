@@ -13,8 +13,8 @@
              data-animation-distance="25px">
         <div class="container-fluid nopadding">
             @Html.Partial("_LoginPartial")
-            <h2 class="font-accident-two-normal uppercase">@Html.DisplayFor(model => model.Title)</h2>
-            <div class="post-meta"><span>by <a href="#!">Christina</a>,</span> <span>@Html.DisplayFor(model => model.Created.Date)</span></div>
+            <h2 class="font-accident-two-normal uppercase">@Model.Title</h2>
+            <div class="post-meta"><span>by <a>Christina</a>,</span> <span>@Model.Created.ToString("d"))</span></div>
         </div>
     </section>
 
@@ -23,7 +23,8 @@
 
         <div class="container-fluid nopadding">
 
-            <img src="@Html.DisplayFor(model => model.MediaUrl)" class="img-responsive"
+            <img src="@Model.MediaUrl)" class="img-responsive"
+                 alt=""
                  data-animation-origin="top"
                  data-animation-duration="500"
                  data-animation-delay="300"

@@ -117,3 +117,7 @@ C:\Git\cwagnerPortfolio\cwagnerPortfolio\obj\Debug\cwagnerPortfolio.csprojResolv
 C:\Git\cwagnerPortfolio\cwagnerPortfolio\obj\Debug\cwagnerPortfolio.csproj.CoreCompileInputs.cache
 C:\Git\cwagnerPortfolio\cwagnerPortfolio\obj\Debug\cwagnerPortfolio.dll
 C:\Git\cwagnerPortfolio\cwagnerPortfolio\obj\Debug\cwagnerPortfolio.pdb
+C:\Git\cwagnerPortfolio\cwagnerPortfolio\bin\PagedList.dll
+C:\Git\cwagnerPortfolio\cwagnerPortfolio\bin\PagedList.Mvc.dll
+C:\Git\cwagnerPortfolio\cwagnerPortfolio\bin\PagedList.xml
+C:\Git\cwagnerPortfolio\cwagnerPortfolio\bin\PagedList.Mvc.xml
