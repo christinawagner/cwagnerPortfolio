@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using cwagnerPortfolio.Models;
+using Microsoft.Owin.Security.Facebook;
 
 namespace cwagnerPortfolio
 {
@@ -54,9 +55,12 @@ namespace cwagnerPortfolio
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "117602375580937",
-               appSecret: "f1f9c81d6317643ef780f4b16667e75c");
+            app.UseFacebookAuthentication(new FacebookAuthenticationOptions
+            {
+
+               AppId = "117602375580937",
+               AppSecret =  "f1f9c81d6317643ef780f4b16667e75c",
+            });
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
