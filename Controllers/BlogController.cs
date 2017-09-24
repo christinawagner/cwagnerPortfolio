@@ -29,7 +29,7 @@ namespace cwagnerPortfolio.Controllers
 
             if (!User.IsInRole("Admin")) posts = posts.Where(p => p.Published);
 
-            return View(posts.ToPagedList(pageNumber, pageSize));
+            return View(posts.Include(i => i.Comments).ToPagedList(pageNumber, pageSize));
         }
 
         // POST: Search

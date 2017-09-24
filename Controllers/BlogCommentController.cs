@@ -16,34 +16,13 @@ namespace cwagnerPortfolio.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogComment
-        //public ActionResult Index()
-        //{
-        //    var blogComments = db.BlogComments.Include(b => b.Author).Include(b => b.Blog);
-        //    return View(blogComments.ToList());
-        //}
+        //deleted
 
         // GET: BlogComment/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    BlogComment blogComment = db.BlogComments.Find(id);
-        //    if (blogComment == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(blogComment);
-        //}
+        //deleted
 
         // GET: BlogComment/Create
-        //public ActionResult Create()
-        //{
-        //    ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
-        //    ViewBag.BlogId = new SelectList(db.Posts, "Id", "Title");
-        //    return View();
-        //}
+        //deleted
 
         // POST: BlogComment/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -70,66 +49,45 @@ namespace cwagnerPortfolio.Controllers
         }
 
         // GET: BlogComment/Edit/5
-        [Authorize(Roles = "Admin Moderator")]
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlogComment blogComment = db.BlogComments.Find(id);
-            if (blogComment == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View("Details", "Blog", id);
-        }
+        //deleted
 
         // POST: BlogComment/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin Moderator")]
-        public ActionResult Edit([Bind(Include = "Id,AuthorId,BlogId,Body,Created,Updated,UpdatedReason")] BlogComment blogComment)
+        [Authorize]
+        public ActionResult Edit([Bind(Include = "Id,AuthorId,BlogId,Body,Created,Updated,UpdatedReason")] BlogComment updatedComment, int blogId)
         {
-            if (ModelState.IsValid)
+            var blogComment = db.BlogComments.Find(updatedComment.Id);
+
+            if (ModelState.IsValid && (User.IsInRole("Admin") || User.IsInRole("Moderator") || blogComment.AuthorId == User.Identity.GetUserId()))
             {
+                blogComment.Updated = DateTimeOffset.Now;
+                blogComment.Body = updatedComment.Body;
+                
                 db.Entry(blogComment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
-            return View("Details", "Blog");
-        }
-
-        // GET: BlogComment/Delete/5
-        [Authorize(Roles = "Admin Moderator")]
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlogComment blogComment = db.BlogComments.Find(id);
-            if (blogComment == null)
-            {
-                return HttpNotFound();
-            }
-            return View("Details", "Blog");
+            return RedirectToAction("Details", "Blog", new { slug = blogComment.Blog.Slug });
         }
 
         // POST: BlogComment/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin Moderator")]
-        public ActionResult DeleteConfirmed(int id)
+        [Authorize]
+        public ActionResult Delete(int id)
         {
-            BlogComment blogComment = db.BlogComments.Find(id);
+            var blogComment = db.BlogComments.Find(id);
+
+            if(User.IsInRole("Admin") || User.IsInRole("Moderator") || blogComment.AuthorId == User.Identity.GetUserId())
+            {
             db.BlogComments.Remove(blogComment);
             db.SaveChanges();
-            return RedirectToAction("Details", "Blog");
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
         protected override void Dispose(bool disposing)

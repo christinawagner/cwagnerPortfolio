@@ -56,11 +56,11 @@
                              data-animation-distance="30px">
                         <div class="post-detail">
                             <div class="dividewhite2"></div>
-                            <h3 class="entry-title"><a href="@Url.Action("Details", "Blog")">@Html.DisplayFor(modelItem => item.Title)</a></h3>
+                            <h3 class="entry-title"><a href="@Url.Action("Details", "Blog", new { item.Slug })">@Html.DisplayFor(modelItem => item.Title)</a></h3>
                             <div class="metas">
                                 Posted on: <a href="#!" class="meta-date">@item.Created.ToString("d")</a>/&nbsp;
                                 Posted by: <a href="#!" class="meta-author">Christina</a>/&nbsp;
-                                <a href="#!" class="meta-comment">0 Comment</a>
+                                <a href="@Url.Action("Details", "Blog", new { item.Slug })" class="meta-comment">@item.Comments.Count() Comment(s)</a>
                             </div>
                         </div>
                         <div class="img-wrap">
@@ -85,30 +85,23 @@
                     </article>
                 </div>
             }
-
-            <!--Pagination-->
-            <div class="col-md-12"
-                 data-animation-origin="top"
-                 data-animation-duration="500"
-                 data-animation-delay="600"
-                 data-animation-distance="30px">
-                <div id="tf-pagination">
-                    <nav class="wp-pagenavi">
-                        <span>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))</span>
-                        @*<span class="page-numbers current">@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)</span>
-                            <a class="page-numbers" href="@Url.Action("Index", Page)">@((Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) + 1)</a>
-                            <a class="next page-numbers" href="!#">
-                                <i class="fa fa-angle-double-right"></i>
-                            </a>*@
-                    </nav>
+            <div class="row">
+                <div class="col-md-12"
+                     data-animation-origin="top"
+                     data-animation-duration="500"
+                     data-animation-delay="600"
+                     data-animation-distance="30px">
+                    <span>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))</span>
                     <div class="dividewhite6"></div>
+
                 </div>
+                <!--/Pagination-->
+
             </div>
-            <!--/Pagination-->
+            <!--Pagination-->
         </div>
     </section>
     <!-- /Blog Block -->
-
 </div>
 @section scripts{
     <script src="~/Scripts/jquery.dotdotdot.js"></script>

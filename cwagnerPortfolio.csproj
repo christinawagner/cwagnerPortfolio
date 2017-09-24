@@ -438,6 +438,7 @@
     <Content Include="wwwroot\assets\custom\2.2.0\css\layouts\samuel.css" />
     <Content Include="wwwroot\assets\custom\2.2.0\css\preloader.css" />
     <Content Include="wwwroot\assets\custom\2.2.0\css\style.css" />
+    <Content Include="wwwroot\assets\custom\2.2.0\css\sweetAlert.css" />
     <Content Include="wwwroot\assets\custom\2.2.0\images\backgrounds\crossword.png" />
     <Content Include="wwwroot\assets\custom\2.2.0\images\backgrounds\denim.png" />
     <Content Include="wwwroot\assets\custom\2.2.0\images\backgrounds\extra_clean_paper.png" />
@@ -645,6 +646,7 @@
     <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\vowelCount.html" />
     <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\vowelCount.js" />
     <Content Include="wwwroot\assets\custom\2.2.0\js\exercises\vowelCountIntro.html" />
+    <Content Include="wwwroot\assets\custom\2.2.0\js\deleteComment.js" />
     <Content Include="wwwroot\assets\custom\2.2.0\php\form.php" />
     <Content Include="wwwroot\assets\custom\2.2.0\scss\css\blue.css" />
     <Content Include="wwwroot\assets\custom\2.2.0\scss\css\default.css" />

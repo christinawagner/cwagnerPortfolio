@@ -1,10 +1,14 @@
 ﻿@model cwagnerPortfolio.Models.Blog
+@using Microsoft.AspNet.Identity;
 
 @{
     ViewBag.Title = Model.Title;
 }
 
 <div id="blogpost" class="inner-content">
+    <form>
+        @Html.AntiForgeryToken()
+    </form>
 
     <section id="page-title" class="inner-section"
              data-animation-origin="right"
@@ -89,28 +93,54 @@
                     </div>
                 }
             }
+            else
+            {
+                <h5 class="font-accident-two-bold uppercase text-center subtitle">Login to leave a comment.</h5>
+                <div class="dividewhite2"></div>
+            }
             @foreach (var item in Model.Comments)
             {
-                <div class="row">
+                <div class="row" data-id="@item.Id">
                     <article id="01" class="post-block col-sm-12 post hentry"
                              data-animation-origin="top"
                              data-animation-duration="500"
                              data-animation-delay="500"
                              data-animation-distance="30px">
-                            <div class="">
-                                <p>@item.Body</p>
-                            </div>
-                            <div class="post-meta">
-                                Posted on: <a class="meta-date">@item.Created.ToString("d")</a>&nbsp;
-                                Posted by: <a class="meta-author">@item.Author.FullName</a>&nbsp;
-                                <div>
-                                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-                                    {
-                                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span> | </span>;
-                                        @Html.ActionLink("Delete", "Delete", new { id = Model.Id });
-                                    }
+                        <div id="comment-body-@item.Id">
+                            <p>@item.Body</p>
+                        </div>
+                        <div id="editForm-@item.Id" style="display:none;" >
+                            @using (Html.BeginForm("Edit", "BlogComment", new { blogId = Model.Id }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <div class="wpcf7-form">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="field">
+                                            <textarea type="text" id="Body" name="Body" placeholder="Leave a comment" rows="3" cols="30" required>@item.Body</textarea>
+                                        </div>
+                                        <div class="dividewhite2"></div>
+                                        <div class="field text-center">
+                                            <button onclick="toggleCommentEdit(@item.Id)" type="button" class="btn btn-lg btn-light">Cancel</button>
+                                            <button type="submit" class="btn btn-lg btn-darker">Submit</button>
+                                            <div class="dividewhite2"></div>
+                                        </div>
+                                    </div>
                                 </div>
+                            }
+                        </div>
+                        <div class="post-meta">
+                            Posted on: <a class="meta-date">@item.Created.ToString("d")</a>&nbsp;
+                            Posted by: <a class="meta-author">@item.Author.FullName</a>&nbsp;
+                            <div>
+                                @if (User.IsInRole("Admin") || User.IsInRole("Moderator") || item.AuthorId == User.Identity.GetUserId())
+                                {
+                                    <a href="javascript:void(0)" onclick="toggleCommentEdit(@item.Id)">Edit</a> <span> | </span>;
+                                    <a href="javascript:void(0)" onclick="commentDelete(@item.Id, '@Url.Action("Delete", "BlogComment", new { id = item.Id }, null)')">Delete</a>;
+                                }
                             </div>
+                        </div>
                         <hr />
                     </article>
                 </div>
@@ -121,3 +151,9 @@
     </section>
     <!-- /Blog Block -->
 </div>
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.css" />
+    <link href="~/wwwroot/assets/custom/2.2.0/css/sweetAlert.css" rel="stylesheet" />
+    <script src="~/wwwroot/assets/custom/2.2.0/js/deleteComment.js"></script>
+}
