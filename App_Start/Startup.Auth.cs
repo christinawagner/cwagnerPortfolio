@@ -54,15 +54,15 @@ namespace cwagnerPortfolio
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "117602375580937",
+               appSecret: "f1f9c81d6317643ef780f4b16667e75c");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "705752114943-l79lsjnu44d3lduejidf9pr5qfibgj55.apps.googleusercontent.com",
+                ClientSecret = "v4YYX2toQet-TIOKyJnG_zbu"
+            });
         }
     }
 }
