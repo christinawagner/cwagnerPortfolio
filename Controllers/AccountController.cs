@@ -71,7 +71,7 @@ namespace cwagnerPortfolio.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("Index", "Blog");
             }
 
             // This doesn't count login failures towards account lockout
@@ -88,7 +88,7 @@ namespace cwagnerPortfolio.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return View("Index", "Blog");
             }
         }
 

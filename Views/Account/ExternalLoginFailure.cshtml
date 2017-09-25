@@ -2,7 +2,29 @@
     ViewBag.Title = "Login Failure";
 }
 
-<hgroup>
-    <h2>@ViewBag.Title.</h2>
-    <h3 class="text-danger">Unsuccessful login with service.</h3>
-</hgroup>
+<div id="blogpost" class="inner-content">
+
+    <section id="page-title" class="inner-section"
+             data-animation-origin="right"
+             data-animation-duration="500"
+             data-animation-delay="300"
+             data-animation-distance="25px">
+        <div class="container-fluid nopadding">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <section id="loginForm class=" inner-section feedback feedback-light"">
+                    <div class="col-md-12 e-centered"
+                         data-animation-origin="top"
+                         data-animation-duration="500"
+                         data-animation-delay="600"
+                         data-animation-distance="25px">
+                        <h3 class="font-accident-two-normal uppercase text-center">@ViewBag.Title</h3>
+                        <div id="form-messages"></div>
+                        <h4 class="font-accident-two-normal uppercase text-center">Unsuccessful login with service.</h4>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>

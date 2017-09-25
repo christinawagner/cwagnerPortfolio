@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using cwagnerPortfolio.Models;
 using Microsoft.Owin.Security.Facebook;
+using Owin.Security.Providers.LinkedIn;
+using System.Configuration;
 
 namespace cwagnerPortfolio
 {
@@ -47,25 +49,28 @@ namespace cwagnerPortfolio
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: ConfigurationManager.AppSettings["microsoftId"],
+                clientSecret: ConfigurationManager.AppSettings["microsoftSecret"]);
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: ConfigurationManager.AppSettings["twitterId"],
+               consumerSecret: ConfigurationManager.AppSettings["twitterSecret"]);
 
-            app.UseFacebookAuthentication(new FacebookAuthenticationOptions
+            app.UseLinkedInAuthentication(
+                ConfigurationManager.AppSettings["linkedInId"],
+                ConfigurationManager.AppSettings["linkedInSecret"]);
+
+            app.UseFacebookAuthentication(new FacebookAuthenticationOptions()
             {
-
-               AppId = "117602375580937",
-               AppSecret =  "f1f9c81d6317643ef780f4b16667e75c",
+               AppId = ConfigurationManager.AppSettings["facebookId"],
+               AppSecret =  ConfigurationManager.AppSettings["facebookSecret"]
             });
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "705752114943-l79lsjnu44d3lduejidf9pr5qfibgj55.apps.googleusercontent.com",
-                ClientSecret = "v4YYX2toQet-TIOKyJnG_zbu"
+                ClientId = ConfigurationManager.AppSettings["googleId"],
+                ClientSecret = ConfigurationManager.AppSettings["googleSecret"]
             });
         }
     }
