@@ -29,7 +29,7 @@
                      data-animation-delay="600"
                      data-animation-distance="25px">
                     <div id="form-messages"></div>
-                    @using (Html.BeginForm("Edit", "Blog", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+                    @using (Html.BeginForm("Edit", "Blog", new { mediaUrl = Model.MediaUrl }, FormMethod.Post, new { enctype = "Multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -56,7 +56,7 @@
 
                                 <div class="field">
                                     @Html.LabelFor(model => model.MediaUrl, htmlAttributes: new { @class = "control-label col-md-offset-0" })
-                                    <input type="file" id="MediaUrl" name="MediaUrl" placeholder="MediaUrl" value="@Model.MediaUrl" class="form-control">
+                                    <input type="file" id="MediaUrl" name="image" placeholder="MediaUrl" value="@Model.MediaUrl" class="form-control">
                                     @Html.ValidationMessageFor(model => model.MediaUrl, "", new { @class = "text-danger" })
                                 </div>
 

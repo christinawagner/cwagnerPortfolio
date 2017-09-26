@@ -329,7 +329,9 @@ namespace cwagnerPortfolio.Controllers
                 return RedirectToAction("Login");
             }
 
-            // Sign in the user with this external login provider if the user already has a login
+            returnUrl = !string.IsNullOrWhiteSpace(returnUrl) ? returnUrl : Url.Action("Index", "Blog");
+            
+                // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
             {
@@ -376,14 +378,14 @@ namespace cwagnerPortfolio.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
+                        return RedirectToAction("Index", "Blog");
                     }
                 }
                 AddErrors(result);
             }
 
             ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            return View("Index", "Blog");
         }
 
         //
@@ -393,7 +395,7 @@ namespace cwagnerPortfolio.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Blog");
         }
 
         //

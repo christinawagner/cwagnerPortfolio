@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using cwagnerPortfolio.Helpers;
 using cwagnerPortfolio.Models;
+using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
 
@@ -179,6 +180,7 @@ namespace cwagnerPortfolio.Controllers
                 {
                     blog.MediaUrl = mediaURL;
                 }
+
                 blog.Updated = DateTimeOffset.Now;
                 db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();

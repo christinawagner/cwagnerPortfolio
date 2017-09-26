@@ -57,7 +57,7 @@ namespace cwagnerPortfolio.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,AuthorId,BlogId,Body,Created,Updated,UpdatedReason")] BlogComment updatedComment, int blogId)
+        public ActionResult Edit(BlogComment updatedComment)
         {
             var blogComment = db.BlogComments.Find(updatedComment.Id);
 
