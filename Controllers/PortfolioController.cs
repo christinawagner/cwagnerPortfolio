@@ -26,6 +26,11 @@ namespace cwagnerPortfolio.Controllers
             return View();
         }
 
+        public ActionResult BugTracker()
+        {
+            return View();
+        }
+
         public PartialViewResult LoadJavascriptModal(JsExerciseViewModel model)
         {
             return PartialView("_JavascriptExerciseModal", model);
