@@ -31,6 +31,11 @@ namespace cwagnerPortfolio.Controllers
             return View();
         }
 
+        public ActionResult FinancialPortal()
+        {
+            return View();
+        }
+
         public PartialViewResult LoadJavascriptModal(JsExerciseViewModel model)
         {
             return PartialView("_JavascriptExerciseModal", model);

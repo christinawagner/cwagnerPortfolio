@@ -897,13 +897,15 @@
     <Content Include="wwwroot\assets\vendor\pjax\jquery.pjax.js" />
     <Content Include="wwwroot\assets\vendor\pjax\jquery.pjax.min.js" />
     <Content Include="wwwroot\assets\vendor\progressbar\progressbar.min.js" />
+    <Content Include="wwwroot\images\budget.jpeg" />
     <Content Include="wwwroot\images\bug1.jpg" />
     <Content Include="wwwroot\images\CCCC.jpg" />
     <Content Include="wwwroot\images\CF.jpg" />
     <Content Include="wwwroot\images\CVS.jpg" />
     <Content Include="wwwroot\images\cwagnerpic.jpg" />
     <Content Include="favicon.ico" />
-    <Content Include="wwwroot\images\javaScript.png" />
+    <Content Include="wwwroot\images\IMG_Christina_Wagner %28C%29.jpg" />
+    <Content Include="wwwroot\images\javaScript.jpg" />
     <Content Include="wwwroot\images\shoppingCart.jpg" />
     <Content Include="wwwroot\images\UNCW.jpg" />
     <Content Include="wwwroot\images\VSH.png" />
@@ -1031,6 +1033,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Portfolio\BugTracker.cshtml" />
+    <Content Include="Views\Portfolio\FinancialPortal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
