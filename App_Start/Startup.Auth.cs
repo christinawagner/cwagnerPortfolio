@@ -49,23 +49,23 @@ namespace cwagnerPortfolio
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            app.UseMicrosoftAccountAuthentication(
-                clientId: ConfigurationManager.AppSettings["microsoftId"],
-                clientSecret: ConfigurationManager.AppSettings["microsoftSecret"]);
+            //app.UseMicrosoftAccountAuthentication(
+            //    clientId: ConfigurationManager.AppSettings["microsoftId"],
+            //    clientSecret: ConfigurationManager.AppSettings["microsoftSecret"]);
 
-            app.UseTwitterAuthentication(
-               consumerKey: ConfigurationManager.AppSettings["twitterId"],
-               consumerSecret: ConfigurationManager.AppSettings["twitterSecret"]);
+            //app.UseTwitterAuthentication(
+            //   consumerKey: ConfigurationManager.AppSettings["twitterId"],
+            //   consumerSecret: ConfigurationManager.AppSettings["twitterSecret"]);
 
             app.UseLinkedInAuthentication(
                 ConfigurationManager.AppSettings["linkedInId"],
                 ConfigurationManager.AppSettings["linkedInSecret"]);
 
-            app.UseFacebookAuthentication(new FacebookAuthenticationOptions()
-            {
-               AppId = ConfigurationManager.AppSettings["facebookId"],
-               AppSecret =  ConfigurationManager.AppSettings["facebookSecret"]
-            });
+            //app.UseFacebookAuthentication(new FacebookAuthenticationOptions()
+            //{
+            //   AppId = ConfigurationManager.AppSettings["facebookId"],
+            //   AppSecret =  ConfigurationManager.AppSettings["facebookSecret"]
+            //});
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

@@ -21,10 +21,11 @@ namespace cwagnerPortfolio.Controllers
             return View();
         }
 
-        public ActionResult ShoppingApp()
-        {
-            return View();
-        }
+        //COMMENTED OUT IN CASE THIS IS NEEDED AT A LATER TIME
+        //public ActionResult ShoppingApp()
+        //{
+        //    return View();
+        //}
 
         public ActionResult BugTracker()
         {
